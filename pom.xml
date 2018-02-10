@@ -13,6 +13,7 @@
 
     <modules>
         <module>commons-repositories</module>
+        <module>commons-errors</module>
     </modules>
 
     <repositories>
