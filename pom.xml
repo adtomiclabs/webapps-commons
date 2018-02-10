@@ -14,6 +14,7 @@
     <modules>
         <module>commons-repositories</module>
         <module>commons-errors</module>
+        <module>commons-exceptions</module>
     </modules>
 
     <repositories>
