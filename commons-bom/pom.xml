@@ -49,6 +49,11 @@
             </dependency>
             <dependency>
                 <groupId>com.parabrisassi.sist</groupId>
+                <artifactId>commons-web-constants</artifactId>
+                <version>${com.parabrisassi.sist.commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.parabrisassi.sist</groupId>
                 <artifactId>commons-web-exceptions</artifactId>
                 <version>${com.parabrisassi.sist.commons.version}</version>
             </dependency>

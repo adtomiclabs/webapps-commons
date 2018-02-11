@@ -18,6 +18,7 @@
         <module>commons-models-validation</module>
         <module>commons-dtos</module>
         <module>commons-web-exceptions</module>
+        <module>commons-web-constants</module>
     </modules>
 
     <repositories>
