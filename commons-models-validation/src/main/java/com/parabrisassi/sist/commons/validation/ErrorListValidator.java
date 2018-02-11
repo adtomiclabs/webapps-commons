@@ -12,7 +12,13 @@ import java.util.List;
 /* package */ abstract class ErrorListValidator<E extends RuntimeException, T extends EntityError> {
 
 
-    public void throwIfNotEmpty(List<T> errorList) throws E {
+    /**
+     * Throws a {@link RuntimeException} in case the given {@code errorList} is not empty.
+     *
+     * @param errorList The {@link List} to be checked if it's not empty.
+     * @throws E In case the given {@code errorList} is not empty.
+     */
+    /* package */ void throwIfNotEmpty(List<T> errorList) throws E {
         Assert.notNull(errorList, "The error list must not be null");
         if (!errorList.isEmpty()) {
             throw provideException(errorList);
