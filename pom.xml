@@ -16,6 +16,7 @@
         <module>commons-errors</module>
         <module>commons-exceptions</module>
         <module>commons-models-validation</module>
+        <module>commons-dtos</module>
     </modules>
 
     <repositories>
