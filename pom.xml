@@ -20,6 +20,7 @@
         <module>commons-dtos</module>
         <module>commons-web-exceptions</module>
         <module>commons-web-constants</module>
+        <module>commons-data-transfer</module>
     </modules>
 
     <repositories>
