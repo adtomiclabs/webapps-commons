@@ -12,15 +12,16 @@
 
     <modules>
         <module>commons-bom</module>
-        <module>commons-repositories</module>
+        <module>commons-data-transfer</module>
+        <module>commons-dtos</module>
+        <module>commons-error-handlers</module>
         <module>commons-errors</module>
         <module>commons-exceptions</module>
         <module>commons-models-validation</module>
-        <module>commons-error-handlers</module>
-        <module>commons-dtos</module>
-        <module>commons-web-exceptions</module>
+        <module>commons-repositories</module>
+        <module>commons-web-config</module>
         <module>commons-web-constants</module>
-        <module>commons-data-transfer</module>
+        <module>commons-web-exceptions</module>
     </modules>
 
     <repositories>
@@ -43,7 +44,7 @@
         <!-- Dependencies versions -->
         <com.parabrisassi.sist.dependencies.version>0.0.1-RELEASE</com.parabrisassi.sist.dependencies.version>
         <commons-validator.version>1.6</commons-validator.version>
-        <com.bellotapps.utils.error-handler.version>1.0.1-RELEASE</com.bellotapps.utils.error-handler.version>
+        <com.bellotapps.utils.error-handler.version>2.0.0-RELEASE</com.bellotapps.utils.error-handler.version>
     </properties>
 
     <dependencyManagement>

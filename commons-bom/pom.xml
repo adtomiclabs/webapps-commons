@@ -34,11 +34,6 @@
             </dependency>
             <dependency>
                 <groupId>com.parabrisassi.sist</groupId>
-                <artifactId>commons-repositories</artifactId>
-                <version>${com.parabrisassi.sist.commons.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.parabrisassi.sist</groupId>
                 <artifactId>commons-error-handlers</artifactId>
                 <version>${com.parabrisassi.sist.commons.version}</version>
             </dependency>
@@ -55,6 +50,16 @@
             <dependency>
                 <groupId>com.parabrisassi.sist</groupId>
                 <artifactId>commons-models-validation</artifactId>
+                <version>${com.parabrisassi.sist.commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.parabrisassi.sist</groupId>
+                <artifactId>commons-repositories</artifactId>
+                <version>${com.parabrisassi.sist.commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.parabrisassi.sist</groupId>
+                <artifactId>commons-web-config</artifactId>
                 <version>${com.parabrisassi.sist.commons.version}</version>
             </dependency>
             <dependency>
