@@ -42,9 +42,8 @@
         <versions-maven-plugin.version>2.5</versions-maven-plugin.version>
 
         <!-- Dependencies versions -->
-        <com.parabrisassi.sist.dependencies.version>0.0.1-RELEASE</com.parabrisassi.sist.dependencies.version>
+        <com.parabrisassi.sist.dependencies.version>0.0.2-RELEASE</com.parabrisassi.sist.dependencies.version>
         <commons-validator.version>1.6</commons-validator.version>
-        <com.bellotapps.utils.error-handler.version>2.0.0-RELEASE</com.bellotapps.utils.error-handler.version>
     </properties>
 
     <dependencyManagement>
@@ -62,13 +61,6 @@
                 <groupId>commons-validator</groupId>
                 <artifactId>commons-validator</artifactId>
                 <version>${commons-validator.version}</version>
-            </dependency>
-
-            <!-- Error management -->
-            <dependency>
-                <groupId>com.bellotapps.utils</groupId>
-                <artifactId>error-handler</artifactId>
-                <version>${com.bellotapps.utils.error-handler.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
