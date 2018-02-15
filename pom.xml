@@ -19,6 +19,7 @@
         <module>commons-exceptions</module>
         <module>commons-models-validation</module>
         <module>commons-repositories</module>
+        <module>commons-roles</module>
         <module>commons-web-config</module>
         <module>commons-web-constants</module>
         <module>commons-web-exceptions</module>
