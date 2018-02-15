@@ -2,6 +2,7 @@ package com.parabrisassi.sist.commons.config;
 
 import com.bellotapps.utils.error_handler.ErrorHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.parabrisassi.sist.commons.data_transfer.json.ApiObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;

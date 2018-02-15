@@ -1,4 +1,4 @@
-package com.parabrisassi.sist.commons.config;
+package com.parabrisassi.sist.commons.data_transfer.json;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +9,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
  */
 public class ApiObjectMapper extends ObjectMapper {
 
+
+    // TODO: move to data transfer package
     /**
      * Constructor.
      */
