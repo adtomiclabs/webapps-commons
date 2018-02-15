@@ -12,6 +12,7 @@
 
     <modules>
         <module>commons-bom</module>
+        <module>commons-authentication-interfaces</module>
         <module>commons-data-transfer</module>
         <module>commons-dtos</module>
         <module>commons-error-handlers</module>
