@@ -24,6 +24,11 @@
         <dependencies>
             <dependency>
                 <groupId>com.parabrisassi.sist</groupId>
+                <artifactId>commons-authentication</artifactId>
+                <version>${com.parabrisassi.sist.commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.parabrisassi.sist</groupId>
                 <artifactId>commons-authentication-interfaces</artifactId>
                 <version>${com.parabrisassi.sist.commons.version}</version>
             </dependency>
