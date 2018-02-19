@@ -44,6 +44,7 @@
         <!-- Plugins versions-->
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
         <versions-maven-plugin.version>2.5</versions-maven-plugin.version>
 
         <!-- Dependencies versions -->
@@ -107,6 +108,41 @@
                     </executions>
                 </plugin>
 
+                <!-- Javadocs -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven-javadoc-plugin.version}</version>
+                    <configuration>
+                        <tags>
+                            <tag>
+                                <name>implNote</name>
+                                <placement>tcmf</placement>
+                                <head>Implementation Note:</head>
+                            </tag>
+                            <tag>
+                                <name>implSpec</name>
+                                <placement>tcmf</placement>
+                                <head>Implementation Requirements:</head>
+                            </tag>
+                            <tag>
+                                <name>apiNote</name>
+                                <placement>tcmf</placement>
+                                <head>API Note:</head>
+                            </tag>
+                        </tags>
+                        <excludePackageNames>com.parabrisassi.sist.commons.error_handlers</excludePackageNames>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
                 <!-- Maven versions plugin -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -120,6 +156,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
