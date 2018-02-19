@@ -20,6 +20,7 @@
         <module>commons-errors</module>
         <module>commons-exceptions</module>
         <module>commons-models-validation</module>
+        <module>commons-persistence-helpers</module>
         <module>commons-repositories</module>
         <module>commons-roles</module>
         <module>commons-web-authentication</module>
