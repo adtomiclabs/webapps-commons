@@ -74,6 +74,11 @@
             </dependency>
             <dependency>
                 <groupId>com.parabrisassi.sist</groupId>
+                <artifactId>commons-web-authentication</artifactId>
+                <version>${com.parabrisassi.sist.commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.parabrisassi.sist</groupId>
                 <artifactId>commons-web-config</artifactId>
                 <version>${com.parabrisassi.sist.commons.version}</version>
             </dependency>
