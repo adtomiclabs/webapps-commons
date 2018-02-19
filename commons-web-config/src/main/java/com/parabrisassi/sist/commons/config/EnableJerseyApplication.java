@@ -1,5 +1,6 @@
 package com.parabrisassi.sist.commons.config;
 
+import com.parabrisassi.sist.commons.data_transfer.json.ApiObjectMapper;
 import com.bellotapps.utils.error_handler.ErrorHandler;
 import com.bellotapps.utils.error_handler.ExceptionHandler;
 import com.bellotapps.utils.error_handler.ExceptionHandlerObject;
@@ -21,6 +22,7 @@ import java.lang.annotation.*;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
+@Inherited
 @Documented
 @Import(value = {
         JerseyApplicationConfigurer.class,
