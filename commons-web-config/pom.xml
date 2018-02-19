@@ -8,7 +8,7 @@
     <parent>
         <groupId>com.parabrisassi.sist</groupId>
         <artifactId>psi-sist-commons</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-RELEASE</version>
     </parent>
 
     <artifactId>commons-web-config</artifactId>
@@ -22,7 +22,7 @@
         <dependency>
             <groupId>com.parabrisassi.sist</groupId>
             <artifactId>commons-data-transfer</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0-RELEASE</version>
         </dependency>
 
         <!-- Spring Boot Auto-configuration -->
