@@ -164,5 +164,11 @@
         </plugins>
     </build>
 
-
+    <distributionManagement>
+        <repository>
+            <id>psi-artifactory</id>
+            <name>psi-artifactory</name>
+            <url>https://artifactory.parabrisassi.com/artifactory/libs-release/</url>
+        </repository>
+    </distributionManagement>
 </project>
