@@ -4,38 +4,30 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.parabrisassi.sist</groupId>
-    <artifactId>psi-sist-commons</artifactId>
+    <groupId>com.adtomiclabs.commons</groupId>
+    <artifactId>webapp-commons</artifactId>
     <version>1.0.0-RELEASE</version>
     <packaging>pom</packaging>
     <name>${project.groupId}:${project.artifactId}</name>
 
     <modules>
-        <module>commons-bom</module>
-        <module>commons-authentication</module>
-        <module>commons-authentication-interfaces</module>
-        <module>commons-data-transfer</module>
-        <module>commons-dtos</module>
-        <module>commons-error-handlers</module>
-        <module>commons-errors</module>
-        <module>commons-exceptions</module>
-        <module>commons-models-validation</module>
-        <module>commons-persistence-helpers</module>
-        <module>commons-repositories</module>
-        <module>commons-roles</module>
-        <module>commons-web-authentication</module>
-        <module>commons-web-config</module>
-        <module>commons-web-constants</module>
-        <module>commons-web-exceptions</module>
+        <module>webapp-commons-bom</module>
+        <module>webapp-commons-authentication</module>
+        <module>webapp-commons-authentication-interfaces</module>
+        <module>webapp-commons-data-transfer</module>
+        <module>webapp-commons-dtos</module>
+        <module>webapp-commons-error-handlers</module>
+        <module>webapp-commons-errors</module>
+        <module>webapp-commons-exceptions</module>
+        <module>webapp-commons-models-validation</module>
+        <module>webapp-commons-persistence-helpers</module>
+        <module>webapp-commons-repositories</module>
+        <module>webapp-commons-roles</module>
+        <module>webapp-commons-web-authentication</module>
+        <module>webapp-commons-web-config</module>
+        <module>webapp-commons-web-constants</module>
+        <module>webapp-commons-web-exceptions</module>
     </modules>
-
-    <repositories>
-        <repository>
-            <id>psi-artifactory</id>
-            <name>psi-artifactory</name>
-            <url>https://artifactory.parabrisassi.com/artifactory/libs-release/</url>
-        </repository>
-    </repositories>
 
     <properties>
         <!-- Build -->
@@ -48,7 +40,7 @@
         <versions-maven-plugin.version>2.5</versions-maven-plugin.version>
 
         <!-- Dependencies versions -->
-        <com.parabrisassi.sist.dependencies.version>0.0.2-RELEASE</com.parabrisassi.sist.dependencies.version>
+        <com.adtomiclabs.dependencies.version>0.0.1-RELEASE</com.adtomiclabs.dependencies.version>
         <commons-validator.version>1.6</commons-validator.version>
         <io.jsonwebtoken.jjwt.version>0.9.0</io.jsonwebtoken.jjwt.version>
     </properties>
@@ -56,9 +48,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.parabrisassi.sist</groupId>
+                <groupId>com.adtomiclabs</groupId>
                 <artifactId>dependencies</artifactId>
-                <version>${com.parabrisassi.sist.dependencies.version}</version>
+                <version>${com.adtomiclabs.dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -131,7 +123,7 @@
                                 <head>API Note:</head>
                             </tag>
                         </tags>
-                        <excludePackageNames>com.parabrisassi.sist.commons.error_handlers</excludePackageNames>
+                        <excludePackageNames>com.adtomiclabs.commons.error_handlers</excludePackageNames>
                     </configuration>
                     <executions>
                         <execution>
@@ -163,12 +155,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <distributionManagement>
-        <repository>
-            <id>psi-artifactory</id>
-            <name>psi-artifactory</name>
-            <url>https://artifactory.parabrisassi.com/artifactory/libs-release/</url>
-        </repository>
-    </distributionManagement>
 </project>
