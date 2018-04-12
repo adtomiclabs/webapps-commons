@@ -8,7 +8,7 @@
     <parent>
         <groupId>com.adtomiclabs.commons</groupId>
         <artifactId>webapp-commons</artifactId>
-        <version>1.0.0-RELEASE</version>
+        <version>1.1.0-RELEASE</version>
     </parent>
 
     <artifactId>webapp-commons-web-constants</artifactId>
