@@ -11,7 +11,7 @@ public class IllegalEntityStateError extends MultiFieldError {
      *
      * @param message A human-readable message to be used for debugging purposes.
      */
-    IllegalEntityStateError(String message, String... illegalStateProperties) {
+    public IllegalEntityStateError(String message, String... illegalStateProperties) {
         super(message, illegalStateProperties);
     }
 }
