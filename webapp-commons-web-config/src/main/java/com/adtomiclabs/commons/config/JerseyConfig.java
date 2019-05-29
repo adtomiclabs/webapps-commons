@@ -9,6 +9,7 @@ import io.swagger.jaxrs.config.SwaggerConfigLocator;
 import io.swagger.jaxrs.config.SwaggerContextService;
 import io.swagger.jaxrs.listing.ApiListingResource;
 import io.swagger.jaxrs.listing.SwaggerSerializers;
+import io.swagger.models.Contact;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
@@ -38,14 +39,17 @@ public class JerseyConfig extends ResourceConfig {
      * @param packages        Packages to be scanned for Jersey {@link Provider}s.
      */
     public JerseyConfig(ObjectMapper objectMapper, ThrowableMapper throwableMapper, String... packages) {
+        register(ApiListingResource.class);
+        register(SwaggerSerializers.class);
+
         BeanConfig swaggerConfigBean = new BeanConfig();
-        swaggerConfigBean.setConfigId("Frugalis Swagger Jersey Example");
-        swaggerConfigBean.setTitle("Using Swagger ,Jersey And Spring Boot ");
+        swaggerConfigBean.setConfigId("Adtomic API");
+        swaggerConfigBean.setTitle("Adtomic API REST");
         swaggerConfigBean.setVersion("v1");
-        swaggerConfigBean.setContact("frugalisAdmin");
+        swaggerConfigBean.setContact("Adtomic IT");
         swaggerConfigBean.setSchemes(new String[] { "http", "https" });
         swaggerConfigBean.setBasePath("/api");
-        swaggerConfigBean.setResourcePackage("com.adtomiclabs.admin.backend.web.rest_endpoints");
+        swaggerConfigBean.setResourcePackage("com.adtomiclabs.admin.backend.web.controller.rest_endpoints");
         swaggerConfigBean.setPrettyPrint(true);
         swaggerConfigBean.setScan(true);
         SwaggerConfigLocator.getInstance().putConfig(SwaggerContextService.CONFIG_ID_DEFAULT, swaggerConfigBean);
