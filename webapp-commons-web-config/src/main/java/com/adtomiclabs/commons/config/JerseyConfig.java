@@ -1,12 +1,22 @@
 package com.adtomiclabs.commons.config;
 
+import io.swagger.jaxrs.config.BeanConfig;
+//import io.swagger.jaxrs.listing.ApiListingResource;
+//import io.swagger.jaxrs.listing.SwaggerSerializers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
+import io.swagger.jaxrs.config.SwaggerConfigLocator;
+import io.swagger.jaxrs.config.SwaggerContextService;
+import io.swagger.jaxrs.listing.ApiListingResource;
+import io.swagger.jaxrs.listing.SwaggerSerializers;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
+import org.springframework.stereotype.Component;
 import org.springframework.util.ClassUtils;
 
+import javax.annotation.PostConstruct;
+import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.ext.Provider;
 import java.util.Arrays;
 import java.util.Collection;
@@ -14,6 +24,8 @@ import java.util.Collection;
 /**
  * Jersey configuration class, an extension of {@link ResourceConfig}.
  */
+@Component
+@ApplicationPath("/api")
 public class JerseyConfig extends ResourceConfig {
 
     /**
@@ -26,6 +38,20 @@ public class JerseyConfig extends ResourceConfig {
      * @param packages        Packages to be scanned for Jersey {@link Provider}s.
      */
     public JerseyConfig(ObjectMapper objectMapper, ThrowableMapper throwableMapper, String... packages) {
+        BeanConfig swaggerConfigBean = new BeanConfig();
+        swaggerConfigBean.setConfigId("Frugalis Swagger Jersey Example");
+        swaggerConfigBean.setTitle("Using Swagger ,Jersey And Spring Boot ");
+        swaggerConfigBean.setVersion("v1");
+        swaggerConfigBean.setContact("frugalisAdmin");
+        swaggerConfigBean.setSchemes(new String[] { "http", "https" });
+        swaggerConfigBean.setBasePath("/api");
+        swaggerConfigBean.setResourcePackage("com.adtomiclabs.admin.backend.web.rest_endpoints");
+        swaggerConfigBean.setPrettyPrint(true);
+        swaggerConfigBean.setScan(true);
+        SwaggerConfigLocator.getInstance().putConfig(SwaggerContextService.CONFIG_ID_DEFAULT, swaggerConfigBean);
+        packages(getClass().getPackage().getName(), ApiListingResource.class.getPackage().getName());
+
+
         // Register packages with resources and providers
         registerPackages(packages);
         // Register ObjectMapper which will be used to serialize/deserialize JSON
@@ -52,4 +78,25 @@ public class JerseyConfig extends ResourceConfig {
                         ClassUtils.resolveClassName(beanDefinition.getBeanClassName(), this.getClassLoader()))
                 .forEach(this::register);
     }
+
+//    @PostConstruct
+//    public void init() {
+//        // Register components where DI is needed
+//        this.SwaggerConfig();
+//    }
+//    private void SwaggerConfig() {
+//        this.register(ApiListingResource.class);
+//        this.register(SwaggerSerializers.class);
+//
+//        BeanConfig swaggerConfigBean = new BeanConfig();
+//        swaggerConfigBean.setConfigId("Frugalis Swagger Jersey Example");
+//        swaggerConfigBean.setTitle("Using Swagger ,Jersey And Spring Boot ");
+//        swaggerConfigBean.setVersion("v1");
+//        swaggerConfigBean.setContact("frugalisAdmin");
+//        swaggerConfigBean.setSchemes(new String[] { "http", "https" });
+//        swaggerConfigBean.setBasePath("/");
+//        swaggerConfigBean.setResourcePackage(packages[0]);
+//        swaggerConfigBean.setPrettyPrint(true);
+//        swaggerConfigBean.setScan(true);
+//    }
 }

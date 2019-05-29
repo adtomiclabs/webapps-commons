@@ -61,5 +61,16 @@
             <groupId>com.bellotapps.utils</groupId>
             <artifactId>error-handler</artifactId>
         </dependency>
+        <!-- API Documentation -->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-jersey2-jaxrs</artifactId>
+            <version>1.5.20</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.swagger</groupId>-->
+<!--            <artifactId>swagger-jaxrs</artifactId>-->
+<!--            <version>1.5.20</version>-->
+<!--        </dependency>-->
     </dependencies>
 </project>
