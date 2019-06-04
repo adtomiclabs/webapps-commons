@@ -1,5 +1,7 @@
 package com.adtomiclabs.commons.config;
 
+import io.swagger.annotations.AuthorizationScope;
+import io.swagger.annotations.SecurityDefinition;
 import io.swagger.jaxrs.config.BeanConfig;
 //import io.swagger.jaxrs.listing.ApiListingResource;
 //import io.swagger.jaxrs.listing.SwaggerSerializers;
@@ -10,14 +12,20 @@ import io.swagger.jaxrs.config.SwaggerContextService;
 import io.swagger.jaxrs.listing.ApiListingResource;
 import io.swagger.jaxrs.listing.SwaggerSerializers;
 import io.swagger.models.Contact;
+import io.swagger.models.SecurityRequirement;
+import io.swagger.models.Swagger;
+import io.swagger.models.auth.*;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ClassUtils;
+import org.springframework.web.context.ServletConfigAware;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.ServletConfig;
 import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
 import java.util.Arrays;
 import java.util.Collection;
@@ -27,7 +35,9 @@ import java.util.Collection;
  */
 @Component
 @ApplicationPath("/api")
-public class JerseyConfig extends ResourceConfig {
+public class JerseyConfig extends ResourceConfig implements ServletConfigAware {
+
+    private ServletConfig servletConfig;
 
     /**
      * Constructor.
@@ -48,10 +58,21 @@ public class JerseyConfig extends ResourceConfig {
         swaggerConfigBean.setVersion("v1");
         swaggerConfigBean.setContact("Adtomic IT");
         swaggerConfigBean.setSchemes(new String[] { "http", "https" });
-        swaggerConfigBean.setBasePath("/api");
         swaggerConfigBean.setResourcePackage("com.adtomiclabs.admin.backend.web.controller.rest_endpoints");
         swaggerConfigBean.setPrettyPrint(true);
         swaggerConfigBean.setScan(true);
+        swaggerConfigBean.
+
+
+        Swagger swagger = new Swagger();
+        swagger.securityDefinition("Bearer", new ApiKeyAuthDefinition("Authentication", In.HEADER));
+//        swagger.security()
+        SecurityRequirement securityRequirement = new SecurityRequirement();
+        securityRequirement.requirement("Bearer");
+        swagger.security(securityRequirement);
+
+        new SwaggerContextService().withServletConfig(servletConfig).updateSwagger(swagger);
+
         SwaggerConfigLocator.getInstance().putConfig(SwaggerContextService.CONFIG_ID_DEFAULT, swaggerConfigBean);
         packages(getClass().getPackage().getName(), ApiListingResource.class.getPackage().getName());
 
@@ -62,6 +83,32 @@ public class JerseyConfig extends ResourceConfig {
         register(new JacksonJaxbJsonProvider(objectMapper, JacksonJaxbJsonProvider.DEFAULT_ANNOTATIONS));
         // Register the ThrowableMapper that will wire the exception into the error handler
         register(throwableMapper);
+    }
+
+//    private ApiKey apiKey() {
+//        return new ApiKey("JWT", AUTHORIZATION_HEADER, "header");
+//    }
+//
+//    private SecurityContext securityContext() {
+//        return SecurityContext.builder()
+//                .securityReferences(defaultAuth())
+//                .forPaths(PathSelectors.regex(DEFAULT_INCLUDE_PATTERN))
+//                .build();
+//    }
+//
+//    List<SecurityReference> defaultAuth() {
+//        AuthorizationScope authorizationScope
+//                = new AuthorizationScope("global", "accessEverything");
+//        AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
+//        authorizationScopes[0] = authorizationScope;
+//        return Lists.newArrayList(
+//                new SecurityReference("JWT", authorizationScopes));
+//    }
+
+    @Override
+    public void setServletConfig(ServletConfig servletConfig) {
+//        logger.info("Setting ServletConfig");
+        this.servletConfig = servletConfig;
     }
 
     /**
