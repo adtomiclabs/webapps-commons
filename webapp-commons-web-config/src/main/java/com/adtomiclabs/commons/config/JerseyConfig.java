@@ -3,6 +3,7 @@ package com.adtomiclabs.commons.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.springframework.util.ClassUtils;
@@ -32,6 +33,7 @@ public class JerseyConfig extends ResourceConfig {
         register(new JacksonJaxbJsonProvider(objectMapper, JacksonJaxbJsonProvider.DEFAULT_ANNOTATIONS));
         // Register the ThrowableMapper that will wire the exception into the error handler
         register(throwableMapper);
+        register(MultiPartFeature.class);
     }
 
     /**
