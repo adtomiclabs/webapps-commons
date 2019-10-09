@@ -7,6 +7,7 @@ import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.springframework.util.ClassUtils;
+import org.springframework.web.filter.CorsFilter;
 
 import javax.ws.rs.ext.Provider;
 import java.util.Arrays;
@@ -34,6 +35,7 @@ public class JerseyConfig extends ResourceConfig {
         // Register the ThrowableMapper that will wire the exception into the error handler
         register(throwableMapper);
         register(MultiPartFeature.class);
+        register(CORSFilter.class);
     }
 
     /**
