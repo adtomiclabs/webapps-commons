@@ -65,10 +65,10 @@ public class JerseyConfig extends ResourceConfig implements ServletConfigAware {
 
         new SwaggerContextService().withServletConfig(servletConfig).updateSwagger(swagger);
 
-        SwaggerConfigLocator.getInstance().putConfig(SwaggerContextService.CONFIG_ID_DEFAULT, swaggerConfigBean);
-        SwaggerConfigLocator.getInstance().putConfig(SwaggerContextService.USE_PATH_BASED_CONFIG, swaggerConfigBean);
-
-        packages(getClass().getPackage().getName(), CustomApiListingResource.class.getPackage().getName());
+//        SwaggerConfigLocator.getInstance().putConfig(SwaggerContextService.CONFIG_ID_DEFAULT, swaggerConfigBean);
+//        SwaggerConfigLocator.getInstance().putConfig(SwaggerContextService.USE_PATH_BASED_CONFIG, swaggerConfigBean);
+//
+//        packages(getClass().getPackage().getName(), CustomApiListingResource.class.getPackage().getName());
 
         // Register packages with resources and providers
         registerPackages(packages);
