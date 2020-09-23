@@ -155,4 +155,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>adtomiclabs--repository.adtomiclabs</id>
+            <name>adtomiclabs--repository.adtomiclabs</name>
+            <url>https://adtomiclabs-711479422268.d.codeartifact.us-east-1.amazonaws.com/maven/repository.adtomiclabs/</url>
+        </repository>
+    </distributionManagement>
+
 </project>
