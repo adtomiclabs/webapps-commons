@@ -1,6 +1,9 @@
 package com.adtomiclabs.commons.authentication;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -38,8 +41,10 @@ public final class TokenAuthenticationProvider implements AuthenticationProvider
             final TokenData tokenData = authenticationTokenDataProvider.provide(rawAuthenticationToken.getToken());
 
             // We create a new token with the needed data (username, roles, etc.)
+            Map<String, Object> details = new HashMap<>();
+            details.put("TOKEN", rawAuthenticationToken.getToken());
             final AuthenticationTokenAdapter resultToken =
-                    new AuthenticationTokenAdapter(tokenData.getUsername(), tokenData.getRoles());
+                    new AuthenticationTokenAdapter(tokenData.getUsername(), tokenData.getRoles(), details);
             resultToken.authenticate();
 
             return resultToken;

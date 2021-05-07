@@ -57,4 +57,5 @@ public final class TokenData {
     public List<Role> getRoles() {
         return roles;
     }
+    
 }
